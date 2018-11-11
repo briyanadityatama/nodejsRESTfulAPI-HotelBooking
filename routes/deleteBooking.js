@@ -6,10 +6,10 @@ router.get("/", function(req, res, next) {
   try {
     models.booking
       .destroy({
-        where: { email: req.query.email }
+        where: { bookingId: req.query.email }
       })
       .then(function() {
-        res.redirect("/view-bookings");
+        res.redirect("/delete-booking/:id");
       });
   } catch (e) {
     console.log(e.toString());
