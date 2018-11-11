@@ -6,10 +6,10 @@ router.get("/", function(req, res, next) {
   try {
     models.room
       .destroy({
-        where: { roomType: req.query.roomType }
+        where: { roomId: req.query.roomId }
       })
       .then(function() {
-        res.redirect("/view-rooms");
+        res.redirect("/delete-room/:id");
       });
   } catch (e) {
     console.log(e.toString());
