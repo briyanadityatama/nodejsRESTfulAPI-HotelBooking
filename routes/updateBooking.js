@@ -20,11 +20,14 @@ router.post("/", function(req, res, next) {
           quantity: req.body.quantity
         },
         {
-          where: { email: req.body.email }
+          where: {
+            bookingId: req.body.bookingId,
+            email: req.body.email
+          }
         }
       )
       .then(function() {
-        res.redirect("/view-bookings");
+        res.redirect("/update-booking");
       });
   } catch (e) {
     console.log(e.toString());
