@@ -14,11 +14,14 @@ router.post("/", function(req, res, next) {
           price: req.body.price
         },
         {
-          where: { roomType: req.body.roomType }
+          where: {
+            roomId: req.body.roomId,
+            roomType: req.body.roomType
+          }
         }
       )
       .then(function() {
-        res.redirect("/view-rooms");
+        res.redirect("/update-room");
       });
   } catch (e) {
     console.log(e.toString());
