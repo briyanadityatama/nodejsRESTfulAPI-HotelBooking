@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var models = require("../models");
 
-router.get("/deleteUser", function(req, res, next) {
+router.get("/", function(req, res, next) {
   try {
     models.user
       .destroy({
