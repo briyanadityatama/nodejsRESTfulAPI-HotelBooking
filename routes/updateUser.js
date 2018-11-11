@@ -15,11 +15,14 @@ router.post("/", function(req, res, next) {
           state: req.body.state
         },
         {
-          where: { email: req.body.email }
+          where: {
+            userId: req.body.userId,
+            email: req.body.email
+          }
         }
       )
       .then(function() {
-        res.redirect("/view-users");
+        res.redirect("/update-user");
       });
   } catch (e) {
     console.log(e.toString());
