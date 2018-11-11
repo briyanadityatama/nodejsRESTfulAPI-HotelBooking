@@ -15,7 +15,7 @@ router.get("/", function(req, res, next) {
         }
       ];
       models.room.findAll(query).then(function(rooms) {
-        res.render("viewrooms", { rooms: rooms, req: req });
+        res.render("viewRooms", { rooms: rooms, req: req });
       });
     } else if (req.query.roomName != undefined) {
       query.where = {
@@ -27,7 +27,7 @@ router.get("/", function(req, res, next) {
         }
       ];
       models.room.findOne(query).then(function(room) {
-        res.render("viewrooms", { rooms: [room ? room : {}], req: req });
+        res.render("viewRooms", { rooms: [room ? room : {}], req: req });
       });
     } else {
       models.room
@@ -40,7 +40,7 @@ router.get("/", function(req, res, next) {
           ]
         })
         .then(function(rooms) {
-          res.render("viewrooms", { rooms: rooms, req: req });
+          res.render("view-rooms", { rooms: rooms, req: req });
         });
     }
   } catch (e) {
