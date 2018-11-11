@@ -40,7 +40,7 @@ router.get("/", function(req, res, next) {
           ]
         })
         .then(function(users) {
-          res.render("viewUsers", { users: users, req: req });
+          res.render("view-users", { users: users, req: req });
         });
     }
   } catch (e) {
