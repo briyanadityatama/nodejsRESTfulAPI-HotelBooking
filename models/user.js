@@ -46,6 +46,9 @@ module.exports = function(sequelize, DataTypes) {
       dateCheckIn: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
+      },
+      dateCheckOut: {
+        type: DataTypes.DATE
       }
     },
     {
