@@ -14,11 +14,14 @@ router.post("/", function(req, res, next) {
           state: req.body.state
         },
         {
-          where: { email: req.body.email }
+          where: {
+            adminId: req.body.adminId,
+            email: req.body.email
+          }
         }
       )
       .then(function() {
-        res.redirect("/view-admins");
+        res.redirect("/update-admin");
       });
   } catch (e) {
     console.log(e.toString());
