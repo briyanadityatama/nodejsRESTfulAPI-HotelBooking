@@ -6,10 +6,12 @@ router.get("/", function(req, res, next) {
   try {
     models.admin
       .destroy({
-        where: { email: req.query.email }
+        where: {
+          id: req.query.adminId
+        }
       })
       .then(function() {
-        res.redirect("/view-admins");
+        res.redirect("/delete-admin/:id");
       });
   } catch (e) {
     console.log(e.toString());
