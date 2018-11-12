@@ -2,14 +2,14 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Room = sequelize.define(
-    "room",
+    "Room",
     {
-      roomId: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        unique: true
-      },
+      // roomId: {
+      //   type: DataTypes.INTEGER,
+      //   autoIncrement: true,
+      //   allowNull: false,
+      //   unique: true
+      // },
       roomName: {
         type: DataTypes.STRING(255)
       },
@@ -31,7 +31,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     {
       freezeTableName: true
-    }
+    },
+
+    (Room.associate = function(models) {
+      // Room belongsTo Booking
+      Room.belongsTo(models.Booking, { foreignKey: "bookingId" });
+    })
   );
   return Room;
 };
