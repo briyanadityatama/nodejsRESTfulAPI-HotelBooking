@@ -12,10 +12,6 @@ app.set("port", port);
 var server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-models.user.belongsTo(models.group, {
-  foreignKey: "room_id",
-  targetKey: "roomId"
-});
 models.sequelize.sync().then(function() {
   server.listen(port);
   console.log("Server started on port: ", port);
