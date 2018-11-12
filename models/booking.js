@@ -2,14 +2,14 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Booking = sequelize.define(
-    "booking",
+    "Booking",
     {
-      bookingId: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        unique: true
-      },
+      // bookingId: {
+      //   type: DataTypes.INTEGER,
+      //   autoIncrement: true,
+      //   allowNull: false,
+      //   unique: true
+      // },
       bookingDate: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
@@ -51,9 +51,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.ENUM("transfer", "cash", "gateway")
       }
     },
-    {
-      freezeTableName: true
-    }
+    (Booking.associate = function(models) {
+      // Booking belongsTo User
+      Booking.belongsTo(models.User, { foreignKey: "userId" });
+      Booking.hasMany(models.Room);
+    })
   );
   return Booking;
 };
