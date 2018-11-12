@@ -70,11 +70,11 @@ module.exports = function(sequelize, DataTypes) {
           this.setDataValue("state", names[1]);
         }
       }
-    },
-    (User.associate = function(models) {
-      // User hasMany Booking
-      User.hasMany(models.Booking);
-    })
+    }
   );
+  User.associate = function(models) {
+    // User hasMany Booking
+    User.hasMany(models.Booking);
+  };
   return User;
 };
