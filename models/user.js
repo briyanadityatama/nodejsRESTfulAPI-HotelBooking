@@ -1,5 +1,7 @@
 "use strict";
 
+const bcrypt = require("bcrypt-nodejs");
+
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define(
     "User",
@@ -23,6 +25,8 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(255),
         unique: "compositeIndex"
       },
+      password: { type: DataTypes.STRING(100) },
+
       email: {
         type: DataTypes.STRING(255),
         allowNull: false,
@@ -72,6 +76,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   );
+
+  User.afterValidate(user => {
+    if (user.password) {
+      user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
+    }
+    return user;
+  });
+
   User.associate = function(models) {
     // User hasMany Booking
     User.hasMany(models.Booking);
