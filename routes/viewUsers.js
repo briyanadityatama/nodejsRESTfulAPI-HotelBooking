@@ -13,10 +13,10 @@ router.get("/", function(req, res, next) {
       };
       query.include = [
         {
-          model: models.booking
+          model: models.Booking
         }
       ];
-      models.user.findAll(query).then(function(users) {
+      models.User.findAll(query).then(function(users) {
         res.render("viewUsers", { users: users, req: req });
       });
 
@@ -27,25 +27,23 @@ router.get("/", function(req, res, next) {
       };
       query.include = [
         {
-          model: models.booking
+          model: models.Booking
         }
       ];
-      models.user.findOne(query).then(function(user) {
+      models.User.findOne(query).then(function(user) {
         res.render("viewUsers", { users: [user ? user : {}], req: req });
       });
     } else {
-      models.user
-        .findAll({
-          limit: 100,
-          include: [
-            {
-              model: models.booking
-            }
-          ]
-        })
-        .then(function(users) {
-          res.render("view-users", { users: users, req: req });
-        });
+      models.User.findAll({
+        limit: 100,
+        include: [
+          {
+            model: models.Booking
+          }
+        ]
+      }).then(function(users) {
+        res.render("view-users", { users: users, req: req });
+      });
     }
   } catch (e) {
     console.log(e.toString());
