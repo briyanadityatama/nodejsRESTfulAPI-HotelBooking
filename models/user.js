@@ -2,9 +2,14 @@
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define(
-    "user",
+    "User",
     {
-      userId: {
+      // userId: {
+      //   type: DataTypes.INTEGER,
+      //   autoIncrement: true,
+      //   primaryKey: true
+      // },
+      identityId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -65,7 +70,11 @@ module.exports = function(sequelize, DataTypes) {
           this.setDataValue("state", names[1]);
         }
       }
-    }
+    },
+    (User.associate = function(models) {
+      // User hasMany Booking
+      User.hasMany(models.Booking);
+    })
   );
   return User;
 };
