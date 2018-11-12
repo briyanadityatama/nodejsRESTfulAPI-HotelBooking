@@ -5,6 +5,8 @@ var models = require("../models");
 router.get("/", function(req, res, next) {
   try {
     var query = {};
+
+    // find All Users from "state" given input
     if (req.query.state != undefined) {
       query.where = {
         state: req.query.state
@@ -17,6 +19,8 @@ router.get("/", function(req, res, next) {
       models.user.findAll(query).then(function(users) {
         res.render("viewUsers", { users: users, req: req });
       });
+
+      // find an User from "email" given input
     } else if (req.query.email != undefined) {
       query.where = {
         email: req.query.email
