@@ -40,12 +40,7 @@ router.get("/", function(req, res, next) {
           ]
         })
         .then(function(users) {
-          res.render(
-            "view-users",
-            { users: users, req: req },
-            "view-users/:email",
-            { users: [user ? user : {}], req: req }
-          );
+          res.render("view-users", { users: users, req: req });
         });
     }
   } catch (e) {
