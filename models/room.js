@@ -31,12 +31,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     {
       freezeTableName: true
-    },
-
-    (Room.associate = function(models) {
-      // Room belongsTo Booking
-      Room.belongsTo(models.Booking, { foreignKey: "bookingId" });
-    })
+    }
   );
+
+  Room.associate = function(models) {
+    // Room belongsTo Booking
+    Room.belongsTo(models.Booking, { foreignKey: "bookingId" });
+  };
   return Room;
 };
