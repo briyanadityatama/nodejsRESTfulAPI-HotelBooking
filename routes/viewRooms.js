@@ -4,6 +4,7 @@ var models = require("../models");
 
 router.get("/", function(req, res, next) {
   try {
+    // find All Rooms data and / or Bookings data from "roomType" given input
     var query = {};
     if (req.query.roomType != undefined) {
       query.where = {
@@ -17,6 +18,8 @@ router.get("/", function(req, res, next) {
       models.room.findAll(query).then(function(rooms) {
         res.render("viewRooms", { rooms: rooms, req: req });
       });
+
+      // find an Rooms data and / or Bookings data from "roomName" given input
     } else if (req.query.roomName != undefined) {
       query.where = {
         roomName: req.query.roomName
