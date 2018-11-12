@@ -4,15 +4,13 @@ var models = require("../models");
 
 router.get("/", function(req, res, next) {
   try {
-    models.admin
-      .destroy({
-        where: {
-          id: req.query.adminId
-        }
-      })
-      .then(function() {
-        res.redirect("/delete-admin/:id");
-      });
+    models.Admin.destroy({
+      where: {
+        id: req.query.id
+      }
+    }).then(function() {
+      res.redirect("/delete-admin/:id");
+    });
   } catch (e) {
     console.log(e.toString());
   }
