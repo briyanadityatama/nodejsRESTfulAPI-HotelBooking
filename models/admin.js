@@ -1,14 +1,16 @@
 "use strict";
 
+const bcrypt = require("bcrypt-nodejs");
+
 module.exports = function(sequelize, DataTypes) {
   var Admin = sequelize.define(
-    "admin",
+    "Admin",
     {
-      adminId: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      },
+      // adminId: {
+      //   type: DataTypes.INTEGER,
+      //   autoIncrement: true,
+      //   primaryKey: true
+      // },
       fullName: {
         type: DataTypes.STRING(255),
         allowNull: false,
@@ -20,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         validate: { isEmail: true },
         unique: true
       },
+      password: { type: DataTypes.STRING(100) },
       phone: {
         type: DataTypes.INTEGER(20)
       },
@@ -38,7 +41,8 @@ module.exports = function(sequelize, DataTypes) {
       },
       state: {
         type: DataTypes.STRING(255)
-      }
+      },
+      isActive: { type: DataTypes.INTEGER, defaultValue: 1 }
     },
     {
       freezeTableName: true,
@@ -56,5 +60,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   );
+
+  Admin.afterValidate(admin => {
+    if (admin.password) {
+      admin.password = bcrypt.hashSync(admin.password, bcrypt.genSaltSync(10));
+    }
+    return admin;
+  });
   return Admin;
 };
