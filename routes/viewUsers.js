@@ -6,7 +6,7 @@ router.get("/", function(req, res, next) {
   try {
     var query = {};
 
-    // find All Users from "state" given input
+    // find All Users data & Bookings data from "state" given input
     if (req.query.state != undefined) {
       query.where = {
         state: req.query.state
@@ -20,7 +20,7 @@ router.get("/", function(req, res, next) {
         res.render("viewUsers", { users: users, req: req });
       });
 
-      // find an User from "email" given input
+      // find an User data and/or an Booking data from "email" given input
     } else if (req.query.email != undefined) {
       query.where = {
         email: req.query.email
