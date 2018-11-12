@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       age: {
         type: DataTypes.INTEGER(3),
-        validate: { max: 55, min: 18 }
+        validate: { max: 999, min: 18 }
       },
       address: {
         type: DataTypes.TEXT

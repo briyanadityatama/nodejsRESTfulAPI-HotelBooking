@@ -16,6 +16,9 @@ module.exports = function(sequelize, DataTypes) {
         autoIncrement: true,
         primaryKey: true
       },
+      identityType: {
+        type: DataTypes.ENUM("ktp", "pasport", "sim")
+      },
       firstName: {
         type: DataTypes.STRING(255),
         allowNull: false,
@@ -41,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       age: {
         type: DataTypes.INTEGER(3),
-        validate: { max: 55, min: 18 }
+        validate: { max: 999, min: 18 }
       },
       address: {
         type: DataTypes.TEXT
