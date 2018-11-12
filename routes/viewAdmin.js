@@ -4,6 +4,7 @@ var models = require("../models");
 
 router.get("/", function(req, res, next) {
   try {
+    // find All Admins data from "state" given input
     var query = {};
     if (req.query.state != undefined) {
       query.where = {
@@ -12,6 +13,8 @@ router.get("/", function(req, res, next) {
       models.admin.findAll(query).then(function(admins) {
         res.render("viewaAdmins", { admins: admins, req: req });
       });
+
+      // find an Admin data from "email" given input
     } else if (req.query.email != undefined) {
       query.where = {
         email: req.query.email
