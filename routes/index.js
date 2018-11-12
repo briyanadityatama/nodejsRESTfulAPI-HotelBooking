@@ -5,44 +5,49 @@ var router = express.Router();
 router.get("/", function(req, res, next) {
   var adminData = [
     {
-      adminId: 0001,
       fullName: "John",
       email: "user@test.com",
+      password: "A234",
       phone: 081234567890,
       gender: "male",
       age: 28,
       address: "Somewhere street on earth",
       country: "US",
-      state: "California"
+      state: "California",
+      isActive: 1
     },
     {
-      adminId: 0002,
       fullName: "User",
       email: "user@test.com",
+      password: "B234",
       phone: 081234567890,
       gender: "female",
       age: 54,
       address: "Somewhere street on earth",
       country: "UK",
-      state: "Birmingham"
+      state: "Birmingham",
+      isActive: 1
     },
     {
-      adminId: 0003,
       fullName: "Sample",
       email: "user@test.com",
+      password: "c234",
       phone: 081234567890,
       gender: "male",
       age: 40,
       address: "Somewhere street on earth",
       country: "US",
-      state: "California"
+      state: "California",
+      isActive: 1
     }
   ];
   var userData = [
     {
-      userId: 0001,
+      identityId: 99887766554433,
+      identityType: "sim",
       firstName: "John",
       lastName: "Doe",
+      password: "qwerty123",
       email: "user@test.com",
       phone: 081234567890,
       gender: "male",
@@ -54,9 +59,11 @@ router.get("/", function(req, res, next) {
       dateCheckOut: new Date()
     },
     {
-      userId: 0002,
+      identityId: 1234567890,
+      identityType: "pasport",
       firstName: "User",
       lastName: "Doe",
+      password: "qwerty123",
       email: "user@test.com",
       phone: 081234567890,
       gender: "female",
@@ -68,9 +75,11 @@ router.get("/", function(req, res, next) {
       dateCheckOut: new Date()
     },
     {
-      userId: 0003,
+      identityId: 33334445556667788,
+      identityType: "ktp",
       firstName: "Sample",
       lastName: "User",
+      password: "qwerty123",
       email: "user@test.com",
       phone: 081234567890,
       gender: "male",
@@ -80,100 +89,28 @@ router.get("/", function(req, res, next) {
       state: "California",
       dateCheckIn: new Date(),
       dateCheckOut: new Date()
-    },
-    {
-      userId: 0004,
-      firstName: "Example",
-      lastName: "Usher",
-      email: "user@test.com",
-      phone: 081234567890,
-      gender: "female",
-      age: 34,
-      address: "Somewhere street on earth",
-      country: "ID",
-      state: "Jakarta",
-      dateCheckIn: new Date(),
-      dateCheckOut: new Date()
-    },
-    {
-      userId: 0005,
-      firstName: "Sample1",
-      lastName: "User1",
-      email: "user@test.com",
-      phone: 081234567890,
-      gender: "male",
-      age: 52,
-      address: "Somewhere street on earth",
-      country: "US",
-      state: "California",
-      dateCheckIn: new Date(),
-      dateCheckOut: new Date()
-    },
-    {
-      userId: 0006,
-      firstName: "Sample2",
-      lastName: "User2",
-      email: "user@test.com",
-      phone: 081234567890,
-      gender: "female",
-      age: 22,
-      address: "Somewhere street on earth",
-      country: "US",
-      state: "California",
-      dateCheckIn: new Date(),
-      dateCheckOut: new Date()
     }
   ];
   var roomData = [
     {
-      roomId: 12345,
       roomName: "Group one",
       roomType: "Deluxe",
       description: "Facilities Given",
       imageURL: "",
       quantity: 3,
-      price: "$ 700"
+      price: "$700"
     },
     {
-      roomId: 12345,
       roomName: "Group two",
       roomType: "Regular",
       description: "Facilities Given",
       imageURL: "",
       quantity: 3,
-      price: "$ 300"
-    },
-    {
-      roomId: 12345,
-      roomName: "Group three",
-      roomType: "Deluxe",
-      description: "Facilities Given",
-      imageURL: "",
-      quantity: 3,
-      price: "$ 700"
-    },
-    {
-      roomId: 12345,
-      roomName: "Group four",
-      roomType: "First Class",
-      description: "Facilities Given",
-      imageURL: "",
-      quantity: 3,
-      price: "$ 1000"
-    },
-    {
-      roomId: 12345,
-      roomName: "Group five",
-      roomType: "Business",
-      description: "Facilities Given",
-      imageURL: "",
-      quantity: 3,
-      price: "$ 500"
+      price: "$300"
     }
   ];
   var bookingData = [
     {
-      bookingId: 001,
       bookingDate: new Date(),
       checkInDate: new Date(),
       checkOutDate: new Date(),
@@ -184,11 +121,10 @@ router.get("/", function(req, res, next) {
       type: "Deluxe",
       description: "Plus extra bed",
       quantity: 3,
-      price: "$ 700",
+      price: "$700",
       payment: "transfer"
     },
     {
-      bookingId: 002,
       bookingDate: new Date(),
       checkInDate: new Date(),
       checkOutDate: new Date(),
@@ -199,11 +135,10 @@ router.get("/", function(req, res, next) {
       type: "Deluxe",
       description: "Plus extra bed",
       quantity: 3,
-      price: "$ 700",
+      price: "$700",
       payment: "cash"
     },
     {
-      bookingId: 003,
       bookingDate: new Date(),
       checkInDate: new Date(),
       checkOutDate: new Date(),
@@ -214,7 +149,7 @@ router.get("/", function(req, res, next) {
       type: "Deluxe",
       description: "Plus extra bed",
       quantity: 3,
-      price: "$ 700",
+      price: "$700",
       payment: "gateway"
     }
   ];
