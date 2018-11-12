@@ -3,10 +3,9 @@ var router = express.Router();
 var models = require("../models");
 
 router.post("/", function(req, res, next) {
-  if (req.body.dataType === "user") {
+  if (req.body.dataType === "User") {
     try {
-      models.user
-        .bulkCreate(JSON.parse(req.body.userData), { validate: true })
+      models.User.bulkCreate(JSON.parse(req.body.userData), { validate: true })
         .then(function() {
           res.send(
             "User data seed created. You can now close this tab & check your DB."
@@ -18,10 +17,9 @@ router.post("/", function(req, res, next) {
     } catch (e) {
       console.log(e.toString());
     }
-  } else if (req.body.dataType === "room") {
+  } else if (req.body.dataType === "Room") {
     try {
-      models.room
-        .bulkCreate(JSON.parse(req.body.roomData))
+      models.Room.bulkCreate(JSON.parse(req.body.roomData))
         .then(function() {
           res.send(
             "Room data seed created. You can now close this tab & check your DB."
@@ -33,10 +31,9 @@ router.post("/", function(req, res, next) {
     } catch (e) {
       console.log(e.toString());
     }
-  } else if (req.body.dataType === "admin") {
+  } else if (req.body.dataType === "Admin") {
     try {
-      models.admin
-        .bulkCreate(JSON.parse(req.body.adminData))
+      models.Admin.bulkCreate(JSON.parse(req.body.adminData))
         .then(function() {
           res.send(
             "Admin data seed created. You can now close this tab & check your DB."
@@ -48,10 +45,9 @@ router.post("/", function(req, res, next) {
     } catch (e) {
       console.log(e.toString());
     }
-  } else if (req.body.dataType === "booking") {
+  } else if (req.body.dataType === "Booking") {
     try {
-      models.booking
-        .bulkCreate(JSON.parse(req.body.bookingData))
+      models.Booking.bulkCreate(JSON.parse(req.body.bookingData))
         .then(function() {
           res.send(
             "Booking data seed created. You can now close this tab & check your DB."
