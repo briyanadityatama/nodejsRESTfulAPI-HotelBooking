@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       password: { type: DataTypes.STRING(100) },
       phone: {
-        type: DataTypes.INTEGER(20)
+        type: DataTypes.STRING(20)
       },
       gender: {
         type: DataTypes.ENUM("male", "female")
