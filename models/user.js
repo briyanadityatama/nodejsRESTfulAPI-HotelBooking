@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       //   primaryKey: true
       // },
       identityId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         allowNull: false
       },
       identityType: {
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
         unique: true
       },
       phone: {
-        type: DataTypes.INTEGER(20)
+        type: DataTypes.STRING(20)
       },
       gender: {
         type: DataTypes.ENUM("male", "female")
@@ -89,6 +89,7 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     // User hasMany Booking
     User.hasMany(models.Booking);
+    User.hasMany(models.Room);
   };
   return User;
 };
