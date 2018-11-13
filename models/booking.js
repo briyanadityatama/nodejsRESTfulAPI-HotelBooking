@@ -52,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Booking.associate = function(models) {
     // Booking belongsTo User
-    Booking.belongsTo(models.User, { foreignKey: "userId" });
+    Booking.belongsTo(models.User, { foreignKey: "id" });
     Booking.hasMany(models.Room);
   };
   return Booking;
