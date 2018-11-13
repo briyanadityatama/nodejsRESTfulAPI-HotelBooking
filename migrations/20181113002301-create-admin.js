@@ -9,37 +9,37 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       fullName: {
-        type: DataTypes.STRING(255),
+        type: Sequelize.STRING(255),
         allowNull: false,
         unique: "compositeIndex"
       },
       email: {
-        type: DataTypes.STRING(255),
+        type: Sequelize.STRING(255),
         allowNull: false,
         validate: { isEmail: true },
         unique: true
       },
-      password: { type: DataTypes.STRING(100) },
+      password: { type: Sequelize.STRING(100) },
       phone: {
-        type: DataTypes.INTEGER(20)
+        type: Sequelize.INTEGER(20)
       },
       gender: {
-        type: DataTypes.ENUM("male", "female")
+        type: Sequelize.ENUM("male", "female")
       },
       age: {
-        type: DataTypes.INTEGER(3),
+        type: Sequelize.INTEGER(3),
         validate: { max: 999, min: 18 }
       },
       address: {
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       country: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       state: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
-      isActive: { type: DataTypes.INTEGER, defaultValue: 1 },
+      isActive: { type: Sequelize.INTEGER, defaultValue: 1 },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
