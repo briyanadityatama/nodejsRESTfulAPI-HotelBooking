@@ -9,44 +9,44 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bookingDate: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       checkInDate: {
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       checkOutDate: {
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       name: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       phone: {
-        type: DataTypes.INTEGER(20)
+        type: Sequelize.INTEGER(20)
       },
       state: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       email: {
-        type: DataTypes.STRING(255),
+        type: Sequelize.STRING(255),
         allowNull: false,
         validate: { isEmail: true },
         unique: true
       },
       type: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       description: {
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       quantity: {
-        type: DataTypes.INTEGER(3)
+        type: Sequelize.INTEGER(3)
       },
       price: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       payment: {
-        type: DataTypes.ENUM("transfer", "cash", "gateway")
+        type: Sequelize.ENUM("transfer", "cash", "gateway")
       },
       createdAt: {
         allowNull: false,
