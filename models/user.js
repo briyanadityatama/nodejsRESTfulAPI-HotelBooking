@@ -13,8 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       // },
       identityId: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+        autoIncrement: true
       },
       identityType: {
         type: DataTypes.ENUM("ktp", "pasport", "sim")
