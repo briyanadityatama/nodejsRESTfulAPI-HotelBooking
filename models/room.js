@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Room.associate = function(models) {
     // Room belongsTo Booking
-    Room.belongsTo(models.Booking, { foreignKey: "bookingId" });
+    Room.belongsTo(models.Booking, { foreignKey: "id" });
   };
   return Room;
 };
