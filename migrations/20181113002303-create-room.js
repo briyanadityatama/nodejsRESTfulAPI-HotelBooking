@@ -9,22 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       roomName: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       roomType: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       description: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       imageURL: {
-        type: DataTypes.STRING(2048)
+        type: Sequelize.STRING(2048)
       },
       quantity: {
-        type: DataTypes.INTEGER(3)
+        type: Sequelize.INTEGER(3)
       },
       price: {
-        type: DataTypes.STRING(255)
+        type: Sequelize.STRING(255)
       },
       createdAt: {
         allowNull: false,
