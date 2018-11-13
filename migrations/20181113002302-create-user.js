@@ -10,8 +10,7 @@ module.exports = {
       },
       identityId: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+        autoIncrement: true
       },
       identityType: {
         type: Sequelize.ENUM("ktp", "pasport", "sim")
