@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255)
     },
     phone: {
-      type: DataTypes.INTEGER(20)
+      type: DataTypes.STRING(20)
     },
     state: {
       type: DataTypes.STRING(255)
