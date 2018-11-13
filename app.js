@@ -5,9 +5,9 @@ var bodyParser = require("body-parser");
 
 var routes = require("./routes/index");
 var createDataSeed = require("./routes/createDataSeed");
-var viewUsers = require("./routes/viewUsers");
-var viewRooms = require("./routes/viewRooms");
-var viewAdmins = require("./routes/viewAdmins");
+var viewUser = require("./routes/viewUsers");
+var viewRoom = require("./routes/viewRooms");
+var viewAdmin = require("./routes/viewAdmins");
 var deleteAdmin = require("./routes/deleteAdmin");
 var deleteBooking = require("./routes/deleteBooking");
 var deleteRoom = require("./routes/deleteRoom");
@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", routes);
 app.use("/create-data", createDataSeed);
-app.use("/view-users", viewUsers);
-app.use("/view-rooms", viewRooms);
-app.use("/view-admins", viewAdmins);
+app.use("/view-users", viewUser);
+app.use("/view-rooms", viewRoom);
+app.use("/view-admins", viewAdmin);
 app.use("/delete-admin/:id", deleteAdmin);
 app.use("/delete-booking/:id", deleteBooking);
 app.use("/delete-room/:id", deleteRoom);
