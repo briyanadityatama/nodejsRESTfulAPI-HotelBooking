@@ -153,7 +153,7 @@ router.get("/", function(req, res, next) {
       payment: "gateway"
     }
   ];
-  res.render("home", {
+  res.render("/", {
     adminData: adminData,
     userData: userData,
     roomData: roomData,
