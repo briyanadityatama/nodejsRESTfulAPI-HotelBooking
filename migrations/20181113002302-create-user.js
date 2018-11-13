@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       identityId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(100),
         allowNull: false
       },
       identityType: {
@@ -33,7 +33,7 @@ module.exports = {
         unique: true
       },
       phone: {
-        type: Sequelize.INTEGER(20)
+        type: Sequelize.STRING(20)
       },
       gender: {
         type: Sequelize.ENUM("male", "female")
